@@ -3,6 +3,7 @@ language: bash
 before_script:
    # Download Jfrog CLI
     - curl -fL https://getcli.jfrog.io | sh
+    - chmod +x jfrog  
 
 script:
     # Config Artifactory server (using ENV VARS) 
