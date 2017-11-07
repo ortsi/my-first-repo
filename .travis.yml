@@ -5,7 +5,7 @@ before_script:
   #  - curl -fL https://getcli.jfrog.io | sh
   #  - chmod +x ./jfrog  
     - mvn -version
-    - java -verion
+    - java -version
     - echo $PATH
 
 script:
