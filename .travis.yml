@@ -1,0 +1,10 @@
+language: bash
+
+before_script:
+    - curl -fL https://getcli.jfrog.io | sh
+
+script:
+    - bash jfrog rt mvn "clean install -f maven-example/pom.xml" maven-example/mvnc.yml --build-name=rtMvnBuilb --build-number=1
+
+    - bash jfrog rt bp rtMvnBuilb 1
+    
