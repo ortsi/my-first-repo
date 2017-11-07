@@ -7,9 +7,9 @@ before_script:
 
 script:
     # Config Artifactory server (using ENV VARS) 
-    - bash jfrog rt c 1 --interactive=false --url=$RT_URL --user=$RT_USER --password=$RT_PASS
+    - jfrog rt c 1 --interactive=false --url=$RT_URL --user=$RT_USER --password=$RT_PASS
     
-    - bash jfrog rt mvn "clean install -f maven-example/pom.xml" maven-example/mvnc.yml --build-name=TravisMvnBuilb --build-number=1
+    - jfrog rt mvn "clean install -f maven-example/pom.xml" maven-example/mvnc.yml --build-name=TravisMvnBuilb --build-number=1
 
-    - bash jfrog rt bp TravisMvnBuilb 1
+    - jfrog rt bp TravisMvnBuilb 1
     
