@@ -4,9 +4,9 @@ before_script:
    # Download Jfrog CLI
   #  - curl -fL https://getcli.jfrog.io | sh
   #  - chmod +x ./jfrog  
-  #  - bash mvn -version
-    - bash java -version
-    - bash echo $PATH
+    - mvn -version
+    - java -version
+    - echo $PATH
 
 script:
     # Config Artifactory server (using ENV VARS) 
