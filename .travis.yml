@@ -1,7 +1,7 @@
 language: bash
 
 before_script:
-    Download Jfrog CLI
+    # Download Jfrog CLI
     - curl -fL https://getcli.jfrog.io | sh
     - chmod +x ./jfrog  
     - export M2_HOME=/usr/local/maven-3.5.0
