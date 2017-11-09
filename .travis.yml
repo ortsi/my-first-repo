@@ -4,7 +4,8 @@ before_script:
     # Download Jfrog CLI
     - curl -fL https://getcli.jfrog.io | sh
     - chmod +x ./jfrog  
-    - export M2_HOME=/usr/local/maven-3.5.0
+#    - export M2_HOME=/usr/local/maven-3.5.0
+    - export M2_HOME=$(readlink -m $(dirname $(readlink -f $(which mvn)))/../)
     - export M2=$M2_HOME/bin
     - export PATH=$M2:$PATH 
 
@@ -13,7 +14,7 @@ script:
     # Config Artifactory server (using ENV VARS) 
     - ./jfrog rt c 1 --interactive=false --url=$RT_URL --user=$RT_USER --password=$RT_PASS
     
-    - ./jfrog rt mvn "clean install -f maven-example/pom.xml" mvnc.yml --build-name=TravisMvnBuilb --build-number=3
+    - ./jfrog rt mvn "clean install -f maven-example/pom.xml" mvnc.yml --build-name=TravisMvnBuilb #--build-number=x
 
-    - ./jfrog rt bp TravisMvnBuilb 3
+    - ./jfrog rt bp TravisMvnBuilb
     
