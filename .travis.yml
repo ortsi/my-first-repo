@@ -1,7 +1,7 @@
 language: bash
 
 before_script:
-    # Download Jfrog CLI
+    # Download Jfrog CLI and give execution permissions
     - curl -fL https://getcli.jfrog.io | sh
     - chmod +x ./jfrog  
     
@@ -22,6 +22,6 @@ script:
     # Run Maven Build with Artifactory config file
     - ./jfrog rt mvn "clean install -f maven-example/pom.xml" mvnc.yml --build-name=TravisMvnBuilb --build-number=$RTBUILD_TS
     
-    # Publish Build Info 
+    # Publish Build Info to Artifactory 
     - ./jfrog rt bp TravisMvnBuilb $RTBUILD_TS
     
