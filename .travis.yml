@@ -14,7 +14,8 @@ script:
     # Config Artifactory server (using ENV VARS) 
     - ./jfrog rt c 1 --interactive=false --url=$RT_URL --user=$RT_USER --password=$RT_PASS
     
-    - ./jfrog rt mvn "clean install -f maven-example/pom.xml" mvnc.yml --build-name=TravisMvnBuilb #--build-number=x
+    - export TS=$(date)
+    - ./jfrog rt mvn "clean install -f maven-example/pom.xml" mvnc.yml --build-name=TravisMvnBuilb --build-number=$TS
 
-    - ./jfrog rt bp TravisMvnBuilb
+    - ./jfrog rt bp TravisMvnBuilb $TS
     
