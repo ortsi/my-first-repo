@@ -1,0 +1,27 @@
+
+language: bash
+
+before_script:
+    # Download Jfrog CLI and give execution permissions
+    - curl -fL https://getcli.jfrog.io | sh
+    - chmod +x ./jfrog  
+    
+    # Set Maven's environment variables
+    # 
+    - export M2_HOME=$(readlink -m $(dirname $(readlink -f $(which mvn)))/../)
+    - export M2=$M2_HOME/bin
+    - export PATH=$M2:$PATH 
+
+
+script:
+    # Config Artifactory server  
+    - ./jfrog rt c 1 --interactive=false --url=$RT_URL --user=$RT_USER --password=$RT_PASS
+    
+    # Set timestamp var to be used as build numer
+    - export RTBUILD_TS=$(date +%s)
+    
+    # Run Maven Build with Artifactory config file
+    - ./jfrog rt mvn "clean install -f maven-example/pom.xml" mvnc.yml --build-name=TravisMvnBuilb --build-number=$RTBUILD_TS
+    
+    # Publish Build Info to Artifactory 
+    - ./jfrog rt bp TravisMvnBuilb $RTBUILD_TS
