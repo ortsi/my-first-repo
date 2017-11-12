@@ -6,7 +6,7 @@ before_script:
     - chmod +x ./jfrog  
     
     # Set Maven's environment variables
-    # - export M2_HOME=/usr/local/maven-3.5.0
+    # 
     - export M2_HOME=$(readlink -m $(dirname $(readlink -f $(which mvn)))/../)
     - export M2=$M2_HOME/bin
     - export PATH=$M2:$PATH 
