@@ -25,3 +25,4 @@ script:
     # Publish Build Info to Artifactory 
     - ./jfrog rt bp TravisMvnBuilb $RTBUILD_TS
     
+    
