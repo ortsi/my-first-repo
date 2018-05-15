@@ -11,7 +11,6 @@ before_script:
     - export M2=$M2_HOME/bin
     - export PATH=$M2:$PATH 
 
-
 script:
     # Config Artifactory server  
     - ./jfrog rt c 1 --interactive=false --url=$RT_URL --user=$RT_USER --password=$RT_PASS
@@ -24,5 +23,3 @@ script:
     
     # Publish Build Info to Artifactory 
     - ./jfrog rt bp TravisMvnBuilb $RTBUILD_TS
-    
-    
