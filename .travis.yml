@@ -15,9 +15,6 @@ script:
     # Config Artifactory server  
     - ./jfrog rt c 1 --interactive=false --url=$RT_URL --user=$RT_USER --password=$RT_PASS
     
-    # Set timestamp var to be used as build numer
-    - export RTBUILD_TS=$(date +%s)
-    
     # Run Maven Build with Artifactory config file
     - ./jfrog rt mvn "clean install -f maven-example/pom.xml" mvnc.yml --build-name=TravisMvnBuilb --build-number=$RTBUILD_TS
     
