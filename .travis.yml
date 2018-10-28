@@ -4,6 +4,7 @@ language: bash
 
     - which java
     
+    
     - java -version
 
 before_script:
