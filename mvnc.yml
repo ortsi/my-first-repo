@@ -5,6 +5,6 @@ resolver:
   releaseRepo: libs-release
   serverID: "1"
 deployer:
-  snapshotRepo: temp-snapshot-local
-  releaseRepo: temp-release-local
+  snapshotRepo: libs-snapshot-local
+  releaseRepo: libs-release-local
   serverID: "1"
