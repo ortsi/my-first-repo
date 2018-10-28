@@ -1,3 +1,5 @@
+# sample bash 1
+
 language: bash
 
 before_script:
