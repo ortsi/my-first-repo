@@ -28,5 +28,5 @@ script:
     # Run Maven Build with Artifactory config file
     - ./jfrog rt mvn "clean install -f maven-example/pom.xml" mvnc.yml --build-name=TravisMvnBuilb --build-number=$RTBUILD_TS
     
-    # Publish Build Info to Artifactory 
+    # Publish Build Info to Artifactory .
     - ./jfrog rt bp TravisMvnBuilb $RTBUILD_TS
